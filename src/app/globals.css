@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* BMS Corporate Colors */
+  --bms-primary-green: #2E7D32;
+  --bms-primary-gray: #4B4B4B;
+  --bms-primary-blue: #1976D2;
+  --bms-secondary-yellow: #FFD600;
+  --bms-light-gray: #f5f5f5;
+  --bms-dark-gray: #333333;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* BMS Corporate Color Theme */
+  --color-bms-primary-green: var(--bms-primary-green);
+  --color-bms-primary-gray: var(--bms-primary-gray);
+  --color-bms-primary-blue: var(--bms-primary-blue);
+  --color-bms-secondary-yellow: var(--bms-secondary-yellow);
+  --color-bms-light-gray: var(--bms-light-gray);
+  --color-bms-dark-gray: var(--bms-dark-gray);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Poppins', 'Montserrat', Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Additional BMS-specific styles */
+.bms-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.bms-btn {
+  @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-bms-primary-green hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bms-primary-green transition-colors duration-300;
+}
+
+.bms-btn-secondary {
+  @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-bms-primary-gray bg-bms-light-gray hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bms-primary-gray transition-colors duration-300;
+}
+
+.bms-section {
+  @apply py-12 md:py-16;
+}

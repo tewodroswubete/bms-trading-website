@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "gallery": "Gallery",
+    "quote": "Request Quote",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Leading Manufacturer in Ethiopia",
+    "subtitle": "Quality Plastic and Soap Products Since 2000 E.C.",
+    "description": "BMS Trading PLC specializes in manufacturing high-quality plastic and soap products, serving customers across Ethiopia with our trusted brands KOKEB and SENQIE.",
+    "cta": {
+      "primary": "View Products",
+      "secondary": "Request Quote"
+    }
+  },
+  "about": {
+    "title": "About BMS Trading PLC",
+    "subtitle": "Your Trusted Manufacturing Partner",
+    "founded": "Founded",
+    "industry": "Industry",
+    "location": "Factory Location",
+    "headOffice": "Head Office",
+    "mission": {
+      "title": "Our Mission",
+      "content": "To provide high-quality plastic and soap products that meet the diverse needs of Ethiopian consumers while maintaining environmental responsibility and contributing to the country's economic growth."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To become the leading manufacturer and distributor of plastic and soap products in East Africa, recognized for quality, innovation, and sustainable practices."
+    },
+    "values": {
+      "title": "Our Values",
+      "quality": "Quality Excellence",
+      "innovation": "Innovation",
+      "sustainability": "Sustainability",
+      "integrity": "Integrity"
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Quality Products for Every Need",
+    "categories": {
+      "plastic": "Plastic Products",
+      "soap": "Soap Products"
+    },
+    "items": {
+      "plasticBags": "Plastic Bags",
+      "containers": "Containers",
+      "packaging": "Packaging Materials",
+      "bottles": "Bottles",
+      "liquidSoap": "Liquid Soap",
+      "barSoap": "Bar Soap",
+      "detergent": "Detergent",
+      "handWash": "Hand Wash"
+    },
+    "viewDetails": "View Details",
+    "requestQuote": "Request Quote"
+  },
+  "brands": {
+    "title": "Our Brands",
+    "kokeb": {
+      "name": "KOKEB",
+      "description": "Premium quality plastic products for everyday use"
+    },
+    "senqie": {
+      "name": "SENQIE",
+      "description": "Trusted soap and cleaning products for homes and businesses"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in Touch",
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "workingHours": "Working Hours",
+      "monday": "Monday - Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday Closed"
+    }
+  },
+  "quote": {
+    "title": "Request a Quote",
+    "subtitle": "Get Competitive Pricing for Bulk Orders",
+    "form": {
+      "companyName": "Company Name",
+      "contactPerson": "Contact Person",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "product": "Product Category",
+      "quantity": "Quantity",
+      "unit": "Unit",
+      "deliveryLocation": "Delivery Location",
+      "additionalNotes": "Additional Notes",
+      "submit": "Submit Request",
+      "submitting": "Submitting...",
+      "success": "Quote request submitted successfully!",
+      "error": "Failed to submit request. Please try again."
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "quickLinks": "Quick Links",
+    "contact": "Contact Info",
+    "newsletter": {
+      "title": "Newsletter",
+      "subtitle": "Subscribe to get updates",
+      "placeholder": "Enter your email",
+      "button": "Subscribe"
+    },
+    "copyright": "© 2025 BMS Trading PLC. All rights reserved.",
+    "developedBy": "Developed by"
+  },
+  "common": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try Again",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "open": "Open",
+    "search": "Search",
+    "language": "Language",
+    "english": "English",
+    "amharic": "አማርኛ"
+  }
+}

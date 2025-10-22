@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - BMS Trading PLC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .gallery-item {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .filter-active {
+            background-color: #10b981;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-green-600">
+                    BMS Trading PLC
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-green-600">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-green-600">About</a>
+                    <a href="products.html" class="text-gray-700 hover:text-green-600">Products</a>
+                    <a href="gallery.html" class="text-green-600 font-semibold">Gallery</a>
+                    <a href="quote.html" class="text-gray-700 hover:text-green-600">Quote</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-green-600">Contact</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-green-600">Blog</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-600 py-20">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-5xl font-bold mb-4">Gallery</h1>
+            <p class="text-xl max-w-3xl mx-auto">
+                Explore our facilities, products, and manufacturing process through our visual gallery
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="filterGallery('all')" class="filter-btn px-6 py-2 rounded-lg bg-green-600 text-white filter-active">
+                    <i class="fas fa-th mr-2"></i> All
+                </button>
+                <button onclick="filterGallery('factory')" class="filter-btn px-6 py-2 rounded-lg bg-white hover:bg-gray-200">
+                    <i class="fas fa-industry mr-2"></i> Factory
+                </button>
+                <button onclick="filterGallery('products')" class="filter-btn px-6 py-2 rounded-lg bg-white hover:bg-gray-200">
+                    <i class="fas fa-box mr-2"></i> Products
+                </button>
+                <button onclick="filterGallery('team')" class="filter-btn px-6 py-2 rounded-lg bg-white hover:bg-gray-200">
+                    <i class="fas fa-users mr-2"></i> Team
+                </button>
+                <button onclick="filterGallery('events')" class="filter-btn px-6 py-2 rounded-lg bg-white hover:bg-gray-200">
+                    <i class="fas fa-calendar mr-2"></i> Events
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6" id="galleryGrid">
+                <!-- Factory Images -->
+                <div class="gallery-item" data-category="factory" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                            <i class="fas fa-industry text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">Main Factory Building</h3>
+                            <p class="text-sm text-gray-600">Sheger City Facility</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="factory" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                            <i class="fas fa-cogs text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">Production Line</h3>
+                            <p class="text-sm text-gray-600">Modern Equipment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="factory" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                            <i class="fas fa-warehouse text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">Storage Warehouse</h3>
+                            <p class="text-sm text-gray-600">Large Capacity Storage</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Images -->
+                <div class="gallery-item" data-category="products" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
+                            <i class="fas fa-shopping-bag text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">KOKEB Shopping Bags</h3>
+                            <p class="text-sm text-gray-600">Various Sizes Available</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="products" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center">
+                            <i class="fas fa-soap text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">SENQIE Bar Soap</h3>
+                            <p class="text-sm text-gray-600">Premium Quality</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="products" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center">
+                            <i class="fas fa-box text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">Food Containers</h3>
+                            <p class="text-sm text-gray-600">BPA Free Products</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="products" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                            <i class="fas fa-pump-soap text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">Liquid Soap Range</h3>
+                            <p class="text-sm text-gray-600">Multiple Fragrances</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Images -->
+                <div class="gallery-item" data-category="team" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
+                            <i class="fas fa-users text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">Management Team</h3>
+                            <p class="text-sm text-gray-600">Leadership Excellence</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="team" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+                            <i class="fas fa-hard-hat text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">Production Team</h3>
+                            <p class="text-sm text-gray-600">Skilled Workers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="team" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center">
+                            <i class="fas fa-clipboard-check text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">Quality Control Team</h3>
+                            <p class="text-sm text-gray-600">Ensuring Excellence</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events Images -->
+                <div class="gallery-item" data-category="events" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
+                            <i class="fas fa-ribbon text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">Grand Opening Ceremony</h3>
+                            <p class="text-sm text-gray-600">Sheger City Facility</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events" onclick="openLightbox(this)">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="h-64 bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center">
+                            <i class="fas fa-trophy text-white text-6xl"></i>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold">Awards Ceremony</h3>
+                            <p class="text-sm text-gray-600">Excellence Recognition</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Factory Tour Video</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-black rounded-lg aspect-video flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <i class="fas fa-play-circle text-6xl mb-4"></i>
+                        <p>Factory Tour Video Coming Soon</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="absolute top-4 right-8 text-white text-4xl cursor-pointer">&times;</span>
+        <div class="flex items-center justify-center h-full p-4">
+            <div class="max-w-4xl">
+                <div id="lightboxContent" class="bg-white rounded-lg p-4"></div>
+                <p id="lightboxCaption" class="text-white text-center mt-4"></p>
+            </div>
+        </div>
+    </div>
+
+        <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">BMS Trading PLC</h3>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Leading manufacturer of plastic and soap products in Ethiopia since 2000 E.C.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://instagram.com/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Products</a></li>
+                        <li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="quote.html" class="hover:text-white transition-colors">Request Quote</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="sitemap.html" class="hover:text-white transition-colors">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Our Products</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="products.html#plastic" class="hover:text-white transition-colors">Plastic Products</a></li>
+                        <li><a href="products.html#bags" class="hover:text-white transition-colors">Shopping Bags</a></li>
+                        <li><a href="products.html#containers" class="hover:text-white transition-colors">Food Containers</a></li>
+                        <li><a href="products.html#soap" class="hover:text-white transition-colors">Bar Soap</a></li>
+                        <li><a href="products.html#liquid" class="hover:text-white transition-colors">Liquid Soap</a></li>
+                        <li><a href="products.html#household" class="hover:text-white transition-colors">Household Items</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-green-500"></i>
+                            <span>Sheger City, Jemo Michael<br>Addis Ababa, Ethiopia</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-green-500"></i>
+                            <span>+251-913-283804</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-green-500"></i>
+                            <span>info@bmstrading.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-green-500"></i>
+                            <a href="https://wa.me/251913283804" target="_blank" class="hover:text-white">WhatsApp</a>
+                        </li>
+                    </ul>
+
+                    <div class="mt-4">
+                        <h5 class="font-semibold mb-2">Business Hours</h5>
+                        <p class="text-gray-400 text-sm">Mon - Fri: 8:00 AM - 5:00 PM</p>
+                        <p class="text-gray-400 text-sm">Sat: 8:00 AM - 12:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400 mb-4 md:mb-0">
+                        © 2025 BMS Trading PLC. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 text-sm text-gray-400">
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                        <a href="sitemap.html" class="hover:text-white transition-colors">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Update button styles
+            buttons.forEach(btn => {
+                btn.classList.remove('filter-active', 'bg-green-600', 'text-white');
+                btn.classList.add('bg-white');
+            });
+            event.target.classList.add('filter-active', 'bg-green-600', 'text-white');
+            event.target.classList.remove('bg-white');
+
+            // Filter items
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function openLightbox(element) {
+            const lightbox = document.getElementById('lightbox');
+            const content = element.innerHTML;
+            const title = element.querySelector('h3').textContent;
+            const description = element.querySelector('p').textContent;
+
+            document.getElementById('lightboxContent').innerHTML = content;
+            document.getElementById('lightboxCaption').textContent = `${title} - ${description}`;
+            lightbox.style.display = 'block';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Quote - BMS Trading PLC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .form-input:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+        .progress-step {
+            transition: all 0.3s ease;
+        }
+        .progress-step.active {
+            background-color: #10b981;
+            color: white;
+        }
+        .progress-step.completed {
+            background-color: #10b981;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-green-600">
+                    BMS Trading PLC
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-green-600">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-green-600">About</a>
+                    <a href="products.html" class="text-gray-700 hover:text-green-600">Products</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-green-600">Gallery</a>
+                    <a href="quote.html" class="text-green-600 font-semibold">Quote</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-green-600">Contact</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-green-600">Blog</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-600 py-20">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-5xl font-bold mb-4">Request a Quote</h1>
+            <p class="text-xl max-w-3xl mx-auto">
+                Get competitive pricing for bulk orders. Fill out the form below and we'll respond within 24 hours.
+            </p>
+        </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex justify-between">
+                    <div class="flex items-center">
+                        <div class="progress-step w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center active">
+                            1
+                        </div>
+                        <span class="ml-2 text-sm font-medium">Contact Info</span>
+                    </div>
+                    <div class="flex-1 mx-4 mt-5 border-b-2 border-gray-300"></div>
+                    <div class="flex items-center">
+                        <div class="progress-step w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center">
+                            2
+                        </div>
+                        <span class="ml-2 text-sm font-medium">Product Details</span>
+                    </div>
+                    <div class="flex-1 mx-4 mt-5 border-b-2 border-gray-300"></div>
+                    <div class="flex items-center">
+                        <div class="progress-step w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center">
+                            3
+                        </div>
+                        <span class="ml-2 text-sm font-medium">Review & Submit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Form -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <form id="quoteForm" class="bg-white rounded-lg shadow-xl p-8">
+                    <!-- Step 1: Contact Information -->
+                    <div id="step1" class="form-step">
+                        <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">
+                                    <i class="fas fa-building mr-2"></i>Company Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="companyName"
+                                    required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                                    placeholder="Enter your company name"
+                                >
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">
+                                    <i class="fas fa-user mr-2"></i>Contact Person *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="contactPerson"
+                                    required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                                    placeholder="Your full name"
+                                >
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">
+                                    <i class="fas fa-envelope mr-2"></i>Email Address *
+                                </label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                                    placeholder="company@email.com"
+                                >
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">
+                                    <i class="fas fa-phone mr-2"></i>Phone Number *
+                                </label>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                                    placeholder="+251 9XX XXX XXX"
+                                >
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-gray-700 font-medium mb-2">
+                                    <i class="fas fa-map-marker-alt mr-2"></i>Delivery Address *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="address"
+                                    required
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                                    placeholder="Full delivery address"
+                                >
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">
+                                    <i class="fas fa-city mr-2"></i>City *
+                                </label>
+                                <select name="city" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                                    <option value="">Select City</option>
+                                    <option value="Addis Ababa">Addis Ababa</option>
+                                    <option value="Adama">Adama</option>
+                                    <option value="Borena">Borena</option>
+                                    <option value="Asosa">Asosa</option>
+                                    <option value="Wollega">Wollega</option>
+                                    <option value="Debre Markos">Debre Markos</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">
+                                    <i class="fas fa-industry mr-2"></i>Industry Type
+                                </label>
+                                <select name="industry" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                                    <option value="">Select Industry</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Wholesale">Wholesale</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Hospitality">Hospitality</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 flex justify-end">
+                            <button type="button" onclick="nextStep(2)" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 font-medium">
+                                Next: Product Details <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Product Details -->
+                    <div id="step2" class="form-step hidden">
+                        <h2 class="text-2xl font-bold mb-6">Product Details</h2>
+
+                        <div id="productList">
+                            <div class="product-item bg-gray-50 p-6 rounded-lg mb-4">
+                                <div class="grid md:grid-cols-4 gap-4">
+                                    <div class="md:col-span-2">
+                                        <label class="block text-gray-700 font-medium mb-2">Product Category *</label>
+                                        <select class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" required>
+                                            <option value="">Select Category</option>
+                                            <optgroup label="Plastic Products">
+                                                <option value="Shopping Bags">Shopping Bags</option>
+                                                <option value="Garbage Bags">Garbage Bags</option>
+                                                <option value="Food Containers">Food Containers</option>
+                                                <option value="Water Bottles">Water Bottles</option>
+                                                <option value="Disposable Cutlery">Disposable Cutlery</option>
+                                            </optgroup>
+                                            <optgroup label="Soap Products">
+                                                <option value="Bar Soap">Bar Soap</option>
+                                                <option value="Liquid Soap">Liquid Soap</option>
+                                                <option value="Detergent">Detergent</option>
+                                                <option value="Hand Sanitizer">Hand Sanitizer</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-2">Quantity *</label>
+                                        <input type="number" min="1" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="0">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-2">Unit *</label>
+                                        <select class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" required>
+                                            <option value="">Select Unit</option>
+                                            <option value="Pieces">Pieces</option>
+                                            <option value="Boxes">Boxes</option>
+                                            <option value="Cartons">Cartons</option>
+                                            <option value="Pallets">Pallets</option>
+                                            <option value="Kilograms">Kilograms</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Special Requirements</label>
+                                    <textarea
+                                        rows="2"
+                                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                                        placeholder="Size, color, packaging preferences, etc."
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="addProduct()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-plus mr-2"></i> Add Another Product
+                        </button>
+
+                        <div class="mt-6">
+                            <label class="block text-gray-700 font-medium mb-2">
+                                <i class="fas fa-calendar mr-2"></i>Expected Delivery Date
+                            </label>
+                            <input type="date" name="deliveryDate" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none">
+                        </div>
+
+                        <div class="mt-6">
+                            <label class="block text-gray-700 font-medium mb-2">
+                                <i class="fas fa-sticky-note mr-2"></i>Additional Notes
+                            </label>
+                            <textarea
+                                name="notes"
+                                rows="4"
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                                placeholder="Any additional requirements or special instructions..."
+                            ></textarea>
+                        </div>
+
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" onclick="previousStep(1)" class="bg-gray-500 text-white px-8 py-3 rounded-lg hover:bg-gray-600 font-medium">
+                                <i class="fas fa-arrow-left mr-2"></i> Previous
+                            </button>
+                            <button type="button" onclick="nextStep(3)" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 font-medium">
+                                Review Order <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Review & Submit -->
+                    <div id="step3" class="form-step hidden">
+                        <h2 class="text-2xl font-bold mb-6">Review & Submit</h2>
+
+                        <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                            <h3 class="text-lg font-bold mb-4">Order Summary</h3>
+                            <div id="orderSummary">
+                                <!-- Order summary will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="flex items-start">
+                                <input type="checkbox" required class="mt-1 mr-3">
+                                <span class="text-sm text-gray-700">
+                                    I agree to the <a href="#" class="text-green-600 hover:underline">Terms and Conditions</a>
+                                    and understand that this is a quote request, not a confirmed order.
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="flex items-start">
+                                <input type="checkbox" class="mt-1 mr-3">
+                                <span class="text-sm text-gray-700">
+                                    I would like to receive updates about new products and promotions.
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" onclick="previousStep(2)" class="bg-gray-500 text-white px-8 py-3 rounded-lg hover:bg-gray-600 font-medium">
+                                <i class="fas fa-arrow-left mr-2"></i> Previous
+                            </button>
+                            <button type="submit" class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 font-medium">
+                                <i class="fas fa-paper-plane mr-2"></i> Submit Quote Request
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose BMS Trading?</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Quick Response</h3>
+                    <p class="text-sm text-gray-600">Get a detailed quote within 24 hours</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tags text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Competitive Pricing</h3>
+                    <p class="text-sm text-gray-600">Best prices for bulk orders</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Reliable Delivery</h3>
+                    <p class="text-sm text-gray-600">On-time delivery guaranteed</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Dedicated Support</h3>
+                    <p class="text-sm text-gray-600">Personal account manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">BMS Trading PLC</h3>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Leading manufacturer of plastic and soap products in Ethiopia since 2000 E.C.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://instagram.com/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Products</a></li>
+                        <li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="quote.html" class="hover:text-white transition-colors">Request Quote</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="sitemap.html" class="hover:text-white transition-colors">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Our Products</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="products.html#plastic" class="hover:text-white transition-colors">Plastic Products</a></li>
+                        <li><a href="products.html#bags" class="hover:text-white transition-colors">Shopping Bags</a></li>
+                        <li><a href="products.html#containers" class="hover:text-white transition-colors">Food Containers</a></li>
+                        <li><a href="products.html#soap" class="hover:text-white transition-colors">Bar Soap</a></li>
+                        <li><a href="products.html#liquid" class="hover:text-white transition-colors">Liquid Soap</a></li>
+                        <li><a href="products.html#household" class="hover:text-white transition-colors">Household Items</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-green-500"></i>
+                            <span>Sheger City, Jemo Michael<br>Addis Ababa, Ethiopia</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-green-500"></i>
+                            <span>+251-913-283804</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-green-500"></i>
+                            <span>info@bmstrading.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-green-500"></i>
+                            <a href="https://wa.me/251913283804" target="_blank" class="hover:text-white">WhatsApp</a>
+                        </li>
+                    </ul>
+
+                    <div class="mt-4">
+                        <h5 class="font-semibold mb-2">Business Hours</h5>
+                        <p class="text-gray-400 text-sm">Mon - Fri: 8:00 AM - 5:00 PM</p>
+                        <p class="text-gray-400 text-sm">Sat: 8:00 AM - 12:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400 mb-4 md:mb-0">
+                        © 2025 BMS Trading PLC. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 text-sm text-gray-400">
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                        <a href="sitemap.html" class="hover:text-white transition-colors">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentStep = 1;
+
+        function nextStep(step) {
+            if (validateStep(currentStep)) {
+                document.getElementById(`step${currentStep}`).classList.add('hidden');
+                document.getElementById(`step${step}`).classList.remove('hidden');
+                updateProgress(step);
+                currentStep = step;
+
+                if (step === 3) {
+                    generateSummary();
+                }
+            }
+        }
+
+        function previousStep(step) {
+            document.getElementById(`step${currentStep}`).classList.add('hidden');
+            document.getElementById(`step${step}`).classList.remove('hidden');
+            updateProgress(step);
+            currentStep = step;
+        }
+
+        function updateProgress(step) {
+            const steps = document.querySelectorAll('.progress-step');
+            steps.forEach((s, index) => {
+                if (index < step) {
+                    s.classList.add('completed', 'bg-green-600', 'text-white');
+                    s.classList.remove('bg-gray-300', 'text-gray-600');
+                } else if (index === step - 1) {
+                    s.classList.add('active', 'bg-green-600', 'text-white');
+                    s.classList.remove('bg-gray-300', 'text-gray-600');
+                } else {
+                    s.classList.remove('active', 'completed', 'bg-green-600', 'text-white');
+                    s.classList.add('bg-gray-300', 'text-gray-600');
+                }
+            });
+        }
+
+        function validateStep(step) {
+            // Add validation logic here
+            return true;
+        }
+
+        function addProduct() {
+            const productHtml = `
+                <div class="product-item bg-gray-50 p-6 rounded-lg mb-4">
+                    <button type="button" onclick="removeProduct(this)" class="float-right text-red-600 hover:text-red-800">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 font-medium mb-2">Product Category *</label>
+                            <select class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" required>
+                                <option value="">Select Category</option>
+                                <optgroup label="Plastic Products">
+                                    <option value="Shopping Bags">Shopping Bags</option>
+                                    <option value="Garbage Bags">Garbage Bags</option>
+                                    <option value="Food Containers">Food Containers</option>
+                                    <option value="Water Bottles">Water Bottles</option>
+                                </optgroup>
+                                <optgroup label="Soap Products">
+                                    <option value="Bar Soap">Bar Soap</option>
+                                    <option value="Liquid Soap">Liquid Soap</option>
+                                    <option value="Detergent">Detergent</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Quantity *</label>
+                            <input type="number" min="1" required class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="0">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Unit *</label>
+                            <select class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" required>
+                                <option value="">Select Unit</option>
+                                <option value="Pieces">Pieces</option>
+                                <option value="Boxes">Boxes</option>
+                                <option value="Cartons">Cartons</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('productList').insertAdjacentHTML('beforeend', productHtml);
+        }
+
+        function removeProduct(btn) {
+            btn.closest('.product-item').remove();
+        }
+
+        function generateSummary() {
+            // Generate order summary
+            const summary = `
+                <p class="mb-2"><strong>Contact:</strong> Example Company</p>
+                <p class="mb-2"><strong>Products:</strong> 2 items selected</p>
+                <p class="mb-2"><strong>Delivery:</strong> Addis Ababa</p>
+                <p class="mb-2"><strong>Expected Response:</strong> Within 24 hours</p>
+            `;
+            document.getElementById('orderSummary').innerHTML = summary;
+        }
+
+        // Form submission
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Quote request submitted successfully! We will contact you within 24 hours.');
+        });
+    </script>
+</body>
+</html>

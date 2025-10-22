@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "home": "መነሻ",
+    "about": "ስለኛ",
+    "products": "ምርቶች",
+    "gallery": "ምስሎች",
+    "quote": "የዋጋ ጥያቄ",
+    "blog": "ብሎግ",
+    "contact": "አድራሻ"
+  },
+  "hero": {
+    "title": "በኢትዮጵያ ውስጥ ቀዳሚ አምራች",
+    "subtitle": "ከ2000 ዓ.ም ጀምሮ ጥራት ያለው የፕላስቲክ እና የሳሙና ምርቶች",
+    "description": "ቢኤምኤስ ትሬዲንግ ኃላፊነቱ የተወሰነ የግል ማህበር ከፍተኛ ጥራት ያላቸው የፕላስቲክ እና የሳሙና ምርቶችን በማምረት፣ በመላ ኢትዮጵያ ደንበኞችን በኮከብ እና ሰንቄ የምርት ስሞቻችን እያገለገለ ይገኛል።",
+    "cta": {
+      "primary": "ምርቶችን ይመልከቱ",
+      "secondary": "የዋጋ ጥያቄ"
+    }
+  },
+  "about": {
+    "title": "ስለ ቢኤምኤስ ትሬዲንግ ኃ.የተ.የግ.ማ",
+    "subtitle": "የታመነ የማምረቻ አጋርዎ",
+    "founded": "የተመሰረተበት",
+    "industry": "ኢንዱስትሪ",
+    "location": "የፋብሪካ አድራሻ",
+    "headOffice": "ዋና መስሪያ ቤት",
+    "mission": {
+      "title": "ተልዕኮአችን",
+      "content": "የኢትዮጵያ ተጠቃሚዎችን የተለያዩ ፍላጎቶች የሚያሟሉ ከፍተኛ ጥራት ያላቸው የፕላስቲክ እና የሳሙና ምርቶችን በማቅረብ የአካባቢ ኃላፊነትን በመጠበቅ እና ለሀገሪቱ የኢኮኖሚ እድገት አስተዋፅኦ ማድረግ።"
+    },
+    "vision": {
+      "title": "ራዕያችን",
+      "content": "በምስራቅ አፍሪካ ቀዳሚ የፕላስቲክ እና የሳሙና ምርቶች አምራች እና አከፋፋይ በመሆን በጥራት፣ በፈጠራ እና በዘላቂ አሰራሮች እውቅና ማግኘት።"
+    },
+    "values": {
+      "title": "እሴቶቻችን",
+      "quality": "የጥራት ልቀት",
+      "innovation": "ፈጠራ",
+      "sustainability": "ዘላቂነት",
+      "integrity": "ታማኝነት"
+    }
+  },
+  "products": {
+    "title": "ምርቶቻችን",
+    "subtitle": "ለእያንዳንዱ ፍላጎት ጥራት ያላቸው ምርቶች",
+    "categories": {
+      "plastic": "የፕላስቲክ ምርቶች",
+      "soap": "የሳሙና ምርቶች"
+    },
+    "items": {
+      "plasticBags": "የፕላስቲክ ቦርሳዎች",
+      "containers": "ኮንቴይነሮች",
+      "packaging": "የማሸጊያ እቃዎች",
+      "bottles": "ጠርሙሶች",
+      "liquidSoap": "ፈሳሽ ሳሙና",
+      "barSoap": "ባር ሳሙና",
+      "detergent": "ዲተርጀንት",
+      "handWash": "የእጅ መታጠቢያ"
+    },
+    "viewDetails": "ዝርዝር ይመልከቱ",
+    "requestQuote": "የዋጋ ጥያቄ"
+  },
+  "brands": {
+    "title": "የምርት ስሞቻችን",
+    "kokeb": {
+      "name": "ኮከብ",
+      "description": "ለዕለት ተዕለት አገልግሎት የሚሆኑ ከፍተኛ ጥራት ያላቸው የፕላስቲክ ምርቶች"
+    },
+    "senqie": {
+      "name": "ሰንቄ",
+      "description": "ለቤቶች እና ለንግድ ድርጅቶች የታመኑ የሳሙና እና የጽዳት ምርቶች"
+    }
+  },
+  "contact": {
+    "title": "ያግኙን",
+    "subtitle": "ያነጋግሩን",
+    "form": {
+      "name": "ስምዎ",
+      "email": "ኢሜይል አድራሻ",
+      "phone": "ስልክ ቁጥር",
+      "subject": "ርዕስ",
+      "message": "መልዕክት",
+      "submit": "መልዕክት ላክ",
+      "sending": "በመላክ ላይ...",
+      "success": "መልዕክትዎ በተሳካ ሁኔታ ተልኳል!",
+      "error": "መልዕክት መላክ አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
+    },
+    "info": {
+      "email": "ኢሜይል",
+      "phone": "ስልክ",
+      "address": "አድራሻ",
+      "workingHours": "የስራ ሰዓት",
+      "monday": "ሰኞ - አርብ",
+      "saturday": "ቅዳሜ",
+      "sunday": "እሁድ የተዘጋ"
+    }
+  },
+  "quote": {
+    "title": "የዋጋ ጥያቄ",
+    "subtitle": "ለብዙ ትዕዛዞች ተወዳዳሪ ዋጋ ያግኙ",
+    "form": {
+      "companyName": "የድርጅት ስም",
+      "contactPerson": "የእውቂያ ሰው",
+      "email": "ኢሜይል አድራሻ",
+      "phone": "ስልክ ቁጥር",
+      "product": "የምርት ምድብ",
+      "quantity": "ብዛት",
+      "unit": "አሃድ",
+      "deliveryLocation": "የማድረሻ ቦታ",
+      "additionalNotes": "ተጨማሪ ማስታወሻዎች",
+      "submit": "ጥያቄ ላክ",
+      "submitting": "በመላክ ላይ...",
+      "success": "የዋጋ ጥያቄ በተሳካ ሁኔታ ተልኳል!",
+      "error": "ጥያቄ መላክ አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
+    }
+  },
+  "footer": {
+    "company": "ድርጅት",
+    "quickLinks": "ፈጣን ማገናኛዎች",
+    "contact": "የእውቂያ መረጃ",
+    "newsletter": {
+      "title": "ዜና መላኪያ",
+      "subtitle": "ዝመናዎችን ለማግኘት ይመዝገቡ",
+      "placeholder": "ኢሜይልዎን ያስገቡ",
+      "button": "ተመዝገብ"
+    },
+    "copyright": "© 2025 ቢኤምኤስ ትሬዲንግ ኃ.የተ.የግ.ማ. መብቱ የተጠበቀ ነው።",
+    "developedBy": "የተሰራው በ"
+  },
+  "common": {
+    "readMore": "ተጨማሪ አንብብ",
+    "learnMore": "የበለጠ ይወቁ",
+    "viewAll": "ሁሉንም ይመልከቱ",
+    "loading": "በመጫን ላይ...",
+    "error": "የሆነ ስህተት ተከስቷል",
+    "retry": "እንደገና ሞክር",
+    "back": "ተመለስ",
+    "next": "ቀጣይ",
+    "previous": "የቀድሞ",
+    "close": "ዝጋ",
+    "open": "ክፈት",
+    "search": "ፈልግ",
+    "language": "ቋንቋ",
+    "english": "English",
+    "amharic": "አማርኛ"
+  }
+}

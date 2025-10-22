@@ -1,0 +1,45 @@
+# Robots.txt for BMS Trading PLC
+# https://bmstrading.com
+
+User-agent: *
+Allow: /
+Disallow: /backend/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.env
+Disallow: /package*.json
+Disallow: /js/*.js
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://bmstrading.com/sitemap.xml
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /

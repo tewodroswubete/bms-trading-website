@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - BMS Trading PLC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover { transform: translateY(-10px); }
+        .filter-active { background-color: #10b981; color: white; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-green-600">
+                    BMS Trading PLC
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-green-600">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-green-600">About</a>
+                    <a href="products.html" class="text-green-600 font-semibold">Products</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-green-600">Gallery</a>
+                    <a href="quote.html" class="text-gray-700 hover:text-green-600">Quote</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-green-600">Contact</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-green-600">Blog</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-600 py-20">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-5xl font-bold mb-4">Our Products</h1>
+            <p class="text-xl max-w-3xl mx-auto">
+                Discover our comprehensive range of high-quality plastic and soap products
+            </p>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <div class="flex">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search products..."
+                        class="flex-1 px-6 py-3 rounded-l-lg border-2 border-gray-300 focus:border-green-600 focus:outline-none"
+                    >
+                    <button onclick="searchProducts()" class="bg-green-600 text-white px-8 py-3 rounded-r-lg hover:bg-green-700">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Sidebar Filters -->
+                <div class="md:col-span-1">
+                    <div class="bg-white p-6 rounded-lg shadow-lg sticky top-24">
+                        <h3 class="text-xl font-bold mb-4">Categories</h3>
+                        <div class="space-y-2">
+                            <button onclick="filterProducts('all')" class="filter-btn w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 filter-active">
+                                <i class="fas fa-th mr-2"></i> All Products
+                            </button>
+                            <button onclick="filterProducts('plastic')" class="filter-btn w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100">
+                                <i class="fas fa-shopping-bag mr-2"></i> Plastic Products
+                            </button>
+                            <button onclick="filterProducts('soap')" class="filter-btn w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100">
+                                <i class="fas fa-soap mr-2"></i> Soap Products
+                            </button>
+                        </div>
+
+                        <h3 class="text-xl font-bold mt-6 mb-4">Brands</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" checked class="mr-2" onchange="filterProducts()">
+                                <span>KOKEB</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" checked class="mr-2" onchange="filterProducts()">
+                                <span>SENQIE</span>
+                            </label>
+                        </div>
+
+                        <h3 class="text-xl font-bold mt-6 mb-4">Sort By</h3>
+                        <select class="w-full px-4 py-2 border rounded-lg" onchange="sortProducts(this.value)">
+                            <option value="name">Name (A-Z)</option>
+                            <option value="name-desc">Name (Z-A)</option>
+                            <option value="popular">Most Popular</option>
+                            <option value="new">Newest First</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="md:col-span-3">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">Products Catalog</h2>
+                        <span class="text-gray-600">Showing <span id="productCount">24</span> products</span>
+                    </div>
+
+                    <div id="productsGrid" class="grid md:grid-cols-3 gap-6">
+                        <!-- Plastic Products -->
+                        <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="plastic" data-brand="kokeb">
+                            <div class="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                                <i class="fas fa-shopping-bag text-6xl text-green-600"></i>
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">KOKEB</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Shopping Bags</h3>
+                                <p class="text-gray-600 text-sm mb-4">Durable and eco-friendly shopping bags in various sizes</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-green-600 font-bold">Various Sizes</span>
+                                    <button onclick="showProductModal('Shopping Bags')" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="plastic" data-brand="kokeb">
+                            <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                                <i class="fas fa-box text-6xl text-blue-600"></i>
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">KOKEB</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Food Containers</h3>
+                                <p class="text-gray-600 text-sm mb-4">Safe and reliable food storage containers</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-blue-600 font-bold">BPA Free</span>
+                                    <button onclick="showProductModal('Food Containers')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="plastic" data-brand="kokeb">
+                            <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+                                <i class="fas fa-wine-bottle text-6xl text-purple-600"></i>
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">KOKEB</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Water Bottles</h3>
+                                <p class="text-gray-600 text-sm mb-4">Premium quality water bottles for daily use</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-purple-600 font-bold">1L - 5L</span>
+                                    <button onclick="showProductModal('Water Bottles')" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="plastic" data-brand="kokeb">
+                            <div class="h-48 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center">
+                                <i class="fas fa-trash text-6xl text-yellow-600"></i>
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">KOKEB</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Garbage Bags</h3>
+                                <p class="text-gray-600 text-sm mb-4">Heavy-duty garbage bags for home and industrial use</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-yellow-600 font-bold">30L - 240L</span>
+                                    <button onclick="showProductModal('Garbage Bags')" class="bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Soap Products -->
+                        <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="soap" data-brand="senqie">
+                            <div class="h-48 bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
+                                <i class="fas fa-soap text-6xl text-pink-600"></i>
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">SENQIE</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Bar Soap</h3>
+                                <p class="text-gray-600 text-sm mb-4">Premium quality bar soap for daily hygiene</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-pink-600 font-bold">125g / 250g</span>
+                                    <button onclick="showProductModal('Bar Soap')" class="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="soap" data-brand="senqie">
+                            <div class="h-48 bg-gradient-to-br from-cyan-100 to-cyan-200 flex items-center justify-center">
+                                <i class="fas fa-pump-soap text-6xl text-cyan-600"></i>
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">SENQIE</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Liquid Soap</h3>
+                                <p class="text-gray-600 text-sm mb-4">Gentle liquid soap for hands and body</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-cyan-600 font-bold">500ml / 1L</span>
+                                    <button onclick="showProductModal('Liquid Soap')" class="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="soap" data-brand="senqie">
+                            <div class="h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                                <i class="fas fa-spray-can text-6xl text-orange-600"></i>
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">SENQIE</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Detergent</h3>
+                                <p class="text-gray-600 text-sm mb-4">Powerful detergent for clothes and surfaces</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-orange-600 font-bold">500g / 1kg</span>
+                                    <button onclick="showProductModal('Detergent')" class="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="soap" data-brand="senqie">
+                            <div class="h-48 bg-gradient-to-br from-indigo-100 to-indigo-200 flex items-center justify-center">
+                                <i class="fas fa-hands-wash text-6xl text-indigo-600"></i>
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">SENQIE</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Hand Sanitizer</h3>
+                                <p class="text-gray-600 text-sm mb-4">Antibacterial hand sanitizer gel</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-indigo-600 font-bold">100ml / 500ml</span>
+                                    <button onclick="showProductModal('Hand Sanitizer')" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden" data-category="plastic" data-brand="kokeb">
+                            <div class="h-48 bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center">
+                                <i class="fas fa-utensils text-6xl text-red-600"></i>
+                            </div>
+                            <div class="p-6">
+                                <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">KOKEB</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Disposable Cutlery</h3>
+                                <p class="text-gray-600 text-sm mb-4">Eco-friendly disposable plates, cups, and cutlery</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-red-600 font-bold">Pack of 50</span>
+                                    <button onclick="showProductModal('Disposable Cutlery')" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 id="modalTitle" class="text-3xl font-bold"></h2>
+                    <button onclick="closeProductModal()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="h-64 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
+                        <i id="modalIcon" class="fas fa-box text-8xl text-gray-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-2">Product Details</h3>
+                        <p id="modalDescription" class="text-gray-600 mb-4"></p>
+                        <h4 class="font-bold mb-2">Features:</h4>
+                        <ul class="list-disc list-inside text-gray-600 mb-4">
+                            <li>High quality materials</li>
+                            <li>Environmentally friendly</li>
+                            <li>Durable and long-lasting</li>
+                            <li>Available in multiple sizes</li>
+                        </ul>
+                        <h4 class="font-bold mb-2">Available Sizes:</h4>
+                        <p id="modalSizes" class="text-gray-600 mb-4"></p>
+                        <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 w-full">
+                            <i class="fas fa-file-invoice mr-2"></i> Request Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">BMS Trading PLC</h3>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Leading manufacturer of plastic and soap products in Ethiopia since 2000 E.C.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://instagram.com/bmstrading" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Products</a></li>
+                        <li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="quote.html" class="hover:text-white transition-colors">Request Quote</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="sitemap.html" class="hover:text-white transition-colors">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Our Products</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="products.html#plastic" class="hover:text-white transition-colors">Plastic Products</a></li>
+                        <li><a href="products.html#bags" class="hover:text-white transition-colors">Shopping Bags</a></li>
+                        <li><a href="products.html#containers" class="hover:text-white transition-colors">Food Containers</a></li>
+                        <li><a href="products.html#soap" class="hover:text-white transition-colors">Bar Soap</a></li>
+                        <li><a href="products.html#liquid" class="hover:text-white transition-colors">Liquid Soap</a></li>
+                        <li><a href="products.html#household" class="hover:text-white transition-colors">Household Items</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-green-500"></i>
+                            <span>Sheger City, Jemo Michael<br>Addis Ababa, Ethiopia</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-green-500"></i>
+                            <span>+251-913-283804</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-green-500"></i>
+                            <span>info@bmstrading.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-green-500"></i>
+                            <a href="https://wa.me/251913283804" target="_blank" class="hover:text-white">WhatsApp</a>
+                        </li>
+                    </ul>
+
+                    <div class="mt-4">
+                        <h5 class="font-semibold mb-2">Business Hours</h5>
+                        <p class="text-gray-400 text-sm">Mon - Fri: 8:00 AM - 5:00 PM</p>
+                        <p class="text-gray-400 text-sm">Sat: 8:00 AM - 12:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400 mb-4 md:mb-0">
+                        © 2025 BMS Trading PLC. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 text-sm text-gray-400">
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                        <a href="sitemap.html" class="hover:text-white transition-colors">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('filter-active'));
+            event.target.classList.add('filter-active');
+
+            let count = 0;
+            products.forEach(product => {
+                if (category === 'all' || product.dataset.category === category) {
+                    product.style.display = 'block';
+                    count++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            document.getElementById('productCount').textContent = count;
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+
+            let count = 0;
+            products.forEach(product => {
+                const title = product.querySelector('h3').textContent.toLowerCase();
+                const description = product.querySelector('p').textContent.toLowerCase();
+
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    product.style.display = 'block';
+                    count++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            document.getElementById('productCount').textContent = count;
+        }
+
+        function showProductModal(productName) {
+            document.getElementById('modalTitle').textContent = productName;
+            document.getElementById('modalDescription').textContent =
+                `Our ${productName} are manufactured with the highest quality standards, ensuring durability and reliability for all your needs.`;
+            document.getElementById('modalSizes').textContent = 'Small, Medium, Large, Extra Large';
+            document.getElementById('productModal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.add('hidden');
+        }
+
+        function sortProducts(sortBy) {
+            // Implementation for sorting products
+            console.log('Sorting by:', sortBy);
+        }
+    </script>
+</body>
+</html>
